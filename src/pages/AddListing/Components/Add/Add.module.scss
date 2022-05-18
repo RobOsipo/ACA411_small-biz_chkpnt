@@ -1,0 +1,25 @@
+
+
+.add {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30rem;
+    width: 20rem;
+}
+
+.input {
+    border: none;
+    border-bottom: 1px solid grey;
+}
+
+.button {
+    background: rgb(85, 85, 239);
+    color: #fff;
+    border: none;
+    height: 2rem;
+    border-radius: 5px;
+    &:hover {
+        cursor: pointer;
+    }
+}
