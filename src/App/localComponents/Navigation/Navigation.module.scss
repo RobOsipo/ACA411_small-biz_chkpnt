@@ -20,6 +20,16 @@ $white: #fff;
     padding-left: 1rem;
 }
 
+.button {
+    border: none;
+    background-color: green;
+    color: #fff;
+    font-size: .9rem;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 .link-container {
     width: 15rem;
     @include flex-row;

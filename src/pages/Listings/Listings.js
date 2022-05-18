@@ -9,7 +9,7 @@ const Listings = () => {
 
     const cookies = cookie.parse(document.cookie);
 
-    const isAdmin = cookies['loginToken']
+    let isAdmin = cookies['loginToken']
 
     
 
