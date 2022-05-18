@@ -1,5 +1,7 @@
 import React from "react";
+import {useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
+import MapTable from './Components/MapTable/MapTable'
 import DeleteIcon from '../../icons/DeleteIcon'
 
 import cookie from 'cookie'
@@ -11,6 +13,15 @@ const Listings = () => {
 
     let isAdmin = cookies['loginToken']
 
+
+    const businessArray = useSelector(state => state)
+   
+
+    const mapTable = () => {
+      return businessArray.map((place, index) => {
+        return <MapTable key={index} index={index} name={place.name} hours={place.hours} address={place.address} description={place.description}  />
+      })
+    }
     
 
 
@@ -26,35 +37,9 @@ const Listings = () => {
           {isAdmin && <th>Delete</th>}
         </tr>
       </table>
-      <table className={classes.topTable}>
-        <tr>
-        <Link className={classes.link} to="/details"><td>Austin business</td></Link>
-          <td>A small business</td>
-          <td>9 - 5</td>
-          <td>19467 whatevs road</td>
-          {isAdmin && <td><DeleteIcon /></td>}
-        </tr>
-      </table>
 
-      <table className={classes.topTable}>
-        <tr>
-        <Link className={classes.link} to="/details"><td>Austin business</td></Link>
-          <td>A small business</td>
-          <td>9 - 5</td>
-          <td>19467 whatevs road</td>
-          {isAdmin && <td><DeleteIcon /></td>}
-        </tr>
-      </table>
-
-      <table>
-        <tr>
-        <Link className={classes.link} to="/details"><td>Austin business</td></Link>
-          <td>A small business</td>
-          <td>9 - 5</td>
-          <td>19467 whatevs road</td>
-          {isAdmin && <td><DeleteIcon /></td>}
-        </tr>
-      </table>
+      {mapTable()}
+     
     </div>
   );
 };

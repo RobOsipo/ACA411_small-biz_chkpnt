@@ -1,0 +1,13 @@
+
+.topTable {
+    width: 65vw;
+    border-bottom: 1px solid black;
+}
+
+.link {
+    text-decoration: none;
+    color: rgb(48, 73, 165);
+    &:hover {
+        cursor: pointer;
+    }
+}

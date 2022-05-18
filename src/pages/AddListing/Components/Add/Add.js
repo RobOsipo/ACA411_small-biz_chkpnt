@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
-
+import {useDispatch} from 'react-redux'
+import {useNavigate} from 'react-router-dom'
 import classes from './Add.module.scss'
 
 const Add = () => {
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const [newListing, setNewListing] = useState({
         name: "",
@@ -13,10 +17,13 @@ const Add = () => {
 
     const handleSave = () => {
         // Add newListing to redux store
+        dispatch({ type: 'ADD', payload: newListing})
+        navigate("/", {replace: true})
     }
 
     const handleChange = (e) => {
         setNewListing({ 
+            ...newListing,
             [e.target.name]: e.target.value
         })
     }
@@ -24,7 +31,7 @@ const Add = () => {
 
 
 
-
+console.log(newListing)
 
   return (
     <div className={classes.add}>

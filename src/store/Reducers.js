@@ -1,29 +1,38 @@
-import redux from 'redux'
+import {createStore} from 'redux'
+// import { configureStore, createSlice } from '@reduxjs/toolkit'
+import {initState} from './state'
 
 
-const initState = [
-    {
-        name: "Austin Business 1",
-        address: "19467 whatevs road",
-        hours: " 9 - 5 ",
-        description: "A small business"
-    },
-    {
-        name: "Austin Business 2",
-        address: "19467 whatevs road",
-        hours: " 9 - 5 ",
-        description: "A small business"
-    },
-    {
-        name: "Austin Business 3",
-        address: "19467 whatevs road",
-        hours: " 9 - 5 ",
-        description: "A small business"
-    },
-    {
-        name: "Austin Business 4",
-        address: "19467 whatevs road",
-        hours: " 9 - 5 ",
-        description: "A small business"
-    },
-]
+
+const businessReducer = (state = initState, action) => {
+    switch(action.type) {
+        case 'ADD':
+            return [...state, {name: action.payload.name, address: action.payload.address, hours: action.payload.hours, description: action.payload.description}]
+        case 'REMOVE':
+            const copy = [...state]
+            copy.splice(action.payload, 1)
+            return copy
+        default:
+            return state
+    }
+}
+
+const store = createStore(businessReducer)
+
+// store.subscribe(() => {
+//     console.log(store.getState())
+// })
+
+export default store
+
+
+
+// const businessSlice = createSlice({
+//     name: 'business',
+//     initialState: initState,
+//     reducers: {
+//         addPlace(state) {
+            
+//         }
+//     }
+// })
