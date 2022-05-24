@@ -1,7 +1,7 @@
-
-
 .button {
-    &:hover {
-        cursor: pointer;
-    }
+  height: 2rem;
+  width: 5rem;
+  &:hover {
+    cursor: pointer;
+  }
 }

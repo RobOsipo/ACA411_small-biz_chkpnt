@@ -1,57 +1,29 @@
-export const initState = [
-    {   
-        name: "Austin Business 1",
-        address: "19467 whatevs road",
-        hours: " 9 - 5 ",
-        description: "A small business"
+export const initState = {
+  loginIdentifier: false,
+  businesses: [
+    {
+      name: "Home Slice Pizza",
+      address: "19467 S Congress ave, Austin",
+      hours: " 9am - 5pm ",
+      description: "Get some pizza, home slice",
     },
     {
-        name: "Austin Business 2",
-        address: "19467 whatevs road",
-        hours: " 9 - 5 ",
-        description: "A small business"
+      name: "Austin Sky Diving",
+      address: "19467 dontdie lane",
+      hours: " 9am - 8pm ",
+      description: "A small business",
     },
     {
-        name: "Austin Business 3",
-        address: "19467 whatevs road",
-        hours: " 9 - 5 ",
-        description: "A small business"
+      name: "Austin Coding Academy",
+      address: "SomeWhere",
+      hours: "10am - 10pm",
+      description: "A coding academy ",
     },
     {
-        name: "Austin Business 4",
-        address: "19467 whatevs road",
-        hours: " 9 - 5 ",
-        description: "A small business"
+      name: "The Getaway Bar & Grill",
+      address: "19467 foodie road",
+      hours: " 11am - 2am ",
+      description: "Beer and Food for all!",
     },
-]
-
-
-export const state = {
-    
-    businesses: [
-        {   
-            name: "Austin Business 1",
-            address: "19467 whatevs road",
-            hours: " 9 - 5 ",
-            description: "A small business"
-        },
-        {
-            name: "Austin Business 2",
-            address: "19467 whatevs road",
-            hours: " 9 - 5 ",
-            description: "A small business"
-        },
-        {
-            name: "Austin Business 3",
-            address: "19467 whatevs road",
-            hours: " 9 - 5 ",
-            description: "A small business"
-        },
-        {
-            name: "Austin Business 4",
-            address: "19467 whatevs road",
-            hours: " 9 - 5 ",
-            description: "A small business"
-        },
-    ]
-}
+  ],
+};

@@ -1,30 +1,35 @@
-import React from "react";
-import {useSelector} from 'react-redux'
-import {Link} from 'react-router-dom'
-import MapTable from './Components/MapTable/MapTable'
-import DeleteIcon from '../../icons/DeleteIcon'
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import MapTable from "./Components/MapTable/MapTable";
 
-import cookie from 'cookie'
+import cookie from "cookie";
 import classes from "./Listings.module.scss";
 
 const Listings = () => {
+  const cookies = cookie.parse(document.cookie);
+  let isAdmin = cookies["loginToken"];
 
-    const cookies = cookie.parse(document.cookie);
+  const businessArray = useSelector((state) => state.businesses);
+  const flag = useSelector((state) => state.loginIdentifier);
 
-    let isAdmin = cookies['loginToken']
+  const mapTable = () => {
+    return businessArray.map((place, index) => {
+      return (
+        <MapTable
+          key={index}
+          index={index}
+          name={place.name}
+          hours={place.hours}
+          address={place.address}
+          description={place.description}
+        />
+      );
+    });
+  };
 
-
-    const businessArray = useSelector(state => state)
-   
-
-    const mapTable = () => {
-      return businessArray.map((place, index) => {
-        return <MapTable key={index} index={index} name={place.name} hours={place.hours} address={place.address} description={place.description}  />
-      })
-    }
-    
-
-
+  useEffect(() => {
+    console.log("listings re-render");
+  }, [isAdmin, flag]);
 
   return (
     <div className={classes["main-container"]}>
@@ -39,7 +44,6 @@ const Listings = () => {
       </table>
 
       {mapTable()}
-     
     </div>
   );
 };
