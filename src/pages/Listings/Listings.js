@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import MapTable from "./Components/MapTable/MapTable";
 
 import cookie from "cookie";

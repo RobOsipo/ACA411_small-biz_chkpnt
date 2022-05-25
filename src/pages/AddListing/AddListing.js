@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector } from 'react-redux'
 import Map from "../../SharedComponents/Map/Map";
 import Add from "./Components/Add/Add";
 
@@ -6,33 +7,16 @@ import classes from "./AddListing.module.scss";
 
 const AddListing = () => {
   const [center, setCenter] = useState({ lat: 30.267153, lng: -97.7430608 });
-  const handleMapChange = (e) => {
-    setCenter({
-      ...center,
-      [e.target.name]: Number(e.target.value),
-    });
-  };
+  const flag = useSelector((state) => state.loginIdentifier);
+
+  useEffect(() => {
+    console.log('component rerender')
+  }, [flag])
 
   return (
     <div className={classes["main-container"]}>
-      <Add />
+      <Add center={center} setCenter={setCenter} />
       <div className={classes["image-container"]}>
-        <input
-          className={classes.input}
-          onChange={(e) => handleMapChange(e)}
-          type="text"
-          name="lat"
-          id="lat"
-          placeholder="latitude"
-        />
-        <input
-          className={classes.input}
-          onChange={(e) => handleMapChange(e)}
-          type="text"
-          name="lng"
-          id="lng"
-          placeholder="longitude"
-        />
         <Map zoom={16} center={center} />
         {/* <img
           className={classes.image}

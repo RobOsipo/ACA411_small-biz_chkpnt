@@ -1,4 +1,5 @@
 export const initState = {
+  coords: { lat: 30.2492065201923, lng: -97.749508023262 },
   loginIdentifier: false,
   businesses: [
     {

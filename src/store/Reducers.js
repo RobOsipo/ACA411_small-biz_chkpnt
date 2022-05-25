@@ -26,9 +26,16 @@ const businessReducer = (state = initState, action) => {
       };
     case "FLIPFLAG":
       return {
-        loginIdentifier: !state.loginIdentifier,
-        businesses: state.businesses,
+        ...state,
+        loginIdentifier: !state.loginIdentifier
       };
+    case 'ADD_COORDS':
+      return {
+        ...state,
+        coords: {
+          ...action.payload
+        }
+      }
     default:
       return state;
   }
@@ -36,9 +43,9 @@ const businessReducer = (state = initState, action) => {
 
 const store = createStore(businessReducer);
 
-store.subscribe(() => {
-  console.log(store.getState());
-});
+// store.subscribe(() => {
+//   console.log(store.getState());
+// });
 
 export default store;
 
